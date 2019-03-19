@@ -2,18 +2,20 @@
   <div>
       <Header></Header>
       <HomeSwiper></HomeSwiper>
-      <div>dest</div>
+      <Icons></Icons>
   </div>
 </template>
 
 <script>
 import Header from './components/header.vue'
 import HomeSwiper from './components/swiper.vue'
+import Icons from './components/icons.vue'
 export default {
     name: 'Home',
     components: {
         Header,
-        HomeSwiper
+        HomeSwiper,
+        Icons
     }
 }
 </script>
