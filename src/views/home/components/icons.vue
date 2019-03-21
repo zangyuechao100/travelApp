@@ -88,12 +88,13 @@ export default {
 <style scope lang="less">
 @import '~styles/varibles.less';
 @import '~styles/mixins.less';
-.icons/deep/.swiper-container {
+.icons .swiper-container {
     width: 100%;
     height: 0;
     padding-bottom: 50%;
 }
 .icons {
+    margin-top: 0.1rem;
     width: 100%;
     height: 0;
     padding-bottom: 50%;
