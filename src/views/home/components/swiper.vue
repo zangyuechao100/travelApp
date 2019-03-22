@@ -17,19 +17,10 @@ export default {
           swiperOption: {
             pagination: '.swiper-pagination', // swiper
             loop: true
-          },
-          swiperList: [
-            {
-              id: 1,
-              imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/2f5f3ea4698c9b7898db7562d89b91ed.jpg_750x200_bd3b4ce9.jpg'
-            },
-            {
-              id: 2,
-              imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/13/e1188b0d0f21b902.jpg_750x200_f85c782a.jpg'
-            }
-          ]
+          }
         }
-    }
+    },
+    props: ['swiperList']
 }
 </script>
 

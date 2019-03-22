@@ -2,7 +2,7 @@
   <div>
       <div class="weekend-title">周末去哪</div>
       <ul>
-          <li v-for="item in recommend" :key="item.id" class="item border-bottom">
+          <li v-for="item in weekendList" :key="item.id" class="item border-bottom">
               <div class="item-img-wrapper">
                   <img :src="item.imgUrl" class="item-img" alt="">
               </div>
@@ -20,9 +20,9 @@ export default {
     name: 'Weekend',
     data () {
         return {
-            recommend: []
         }
-    }
+    },
+    props: ['weekendList']
 }
 </script>
 
@@ -37,7 +37,7 @@ export default {
 .item-img-wrapper {
     height: 0;
     overflow: hidden;
-    padding-bottom: 33.4%;
+    padding-bottom: 37.09%;
     .item-img {
         width: 100%;
     }

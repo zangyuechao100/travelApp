@@ -16,57 +16,11 @@
 <script>
 export default {
     name: 'Icons',
+    props: ['iconList'],
     data () {
         return {
             swiperOption: {
-            },
-            iconList: [
-                {
-                    id: '01',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                    desc: '景点门票'
-                },
-                {
-                    id: '02',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-                    desc: '一日游'
-                },
-                {
-                    id: '03',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                    desc: '杭州必游'
-                },
-                {
-                    id: '04',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-                    desc: '踏青赏花'
-                },
-                {
-                    id: '05',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-                    desc: '印象西湖'
-                },
-                {
-                    id: '06',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-                    desc: '千岛湖'
-                },
-                {
-                    id: '07',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png',
-                    desc: '溜娃儿'
-                },
-                {
-                    id: '08',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png',
-                    desc: '西溪湿地'
-                },
-                {
-                    id: '09',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png',
-                    desc: '杭州宋城'
-                }
-            ]
+            }
         }
     },
     computed: {
