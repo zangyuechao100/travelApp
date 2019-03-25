@@ -1,15 +1,18 @@
 <template>
   <div>
       <Header></Header>
+      <Search></Search>
   </div>
 </template>
 
 <script>
 import Header from './components/header.vue'
+import Search from './components/search.vue'
 export default {
     name: 'City',
     components: {
-        Header
+        Header,
+        Search
     },
     data () {
         return {
@@ -23,5 +26,4 @@ export default {
 </script>
 
 <style scoped lang="less">
-
 </style>
