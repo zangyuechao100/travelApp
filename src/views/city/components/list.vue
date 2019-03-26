@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="area" v-for="(item, key) in cities" :key="key">
+        <div class="area" v-for="(item, key) in cities" :key="key" :ref="key">
             <div class="title border-topbottom">{{key}}</div>
             <div class="item-list">
                 <div class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import Bus from '@/bus.js'
 import Bscroll from 'better-scroll'
 export default {
     props: ['hotCities', 'cities'],
@@ -38,14 +39,22 @@ export default {
     },
     data () {
         return {
-            scroll: ''
+            scroll: '',
+            letter: ''
         }
     },
     mounted() {
-        console.log(this.hotCities)
         this.scroll = new Bscroll(this.$refs.wrapper)
+        Bus.$on('letterChange', (res) => {
+            this.letter = res
+        })
     },
     methods: {
+    },
+    watch: {
+        letter (newValue) {
+            this.scroll.scrollToElement(this.$refs[newValue][0])
+        }
     }
 }
 </script>

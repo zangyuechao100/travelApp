@@ -34,12 +34,9 @@ export default {
         getCityInfo () {
             axios.get('/api/city.json').then((res) => {
                 const data = res.data
-                console.log(data)
                 if (data.ret && data.data) {
-                    console.log(12)
                     this.cities = data.data.cities
                     this.hotCities = data.data.hotCities
-                    console.log(this.hotCities)
                 }
             })
         }
