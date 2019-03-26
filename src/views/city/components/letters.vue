@@ -1,22 +1,70 @@
 <template>
   <div class="letters">
-      <li class="items" v-for="(item,key) in cities" :key="key">{{key}}</li>
+    <li class="items"
+        @touchstart="handleTouchStart"
+        @touchmove="handleTouchMove"
+        @touchend="handleTouchEnd"
+        v-for="(item,key) in cities"
+        :key="key"
+        :ref="key"
+        @click="handleLetterClick(key)"
+    >
+        {{key}}
+    </li>
   </div>
 </template>
 
 <script>
+import Bus from '@/bus.js'
 export default {
     name: 'Letters',
     props: ['cities'],
     components: {
     },
     data () {
-        return {
-        }
+			return {
+				touchStatus: false,
+				startY: 0,
+				timer: null
+			}
     },
-    mounted() {
+    computed: {
+			letters () {
+				const letters = []
+				for (let i in this.cities) {
+					letters.push(i)
+				}
+				return letters
+			}
+    },
+    updated() {
+			this.startY = this.$refs['A'][0].offsetTop
     },
     methods: {
+        handleLetterClick (key) {
+					Bus.$emit('letterChange', key)
+        },
+        handleTouchStart () {
+					this.touchStatus = true
+        },
+        handleTouchMove (e) {
+            if (this.touchStatus) {
+							// 节流
+							if (this.timer) {
+								clearTimeout(this.timer)
+							}
+							this.timer = setTimeout(() => {
+								const touchY = e.touches[0].clientY - 79
+								const index = Math.floor((touchY - this.startY) / 20)
+								if (index >= 0 && index < this.letters.length) {
+									Bus.$emit('letterChange', this.letters[index])
+								}
+							}, 16)
+            }
+        },
+        handleTouchEnd () {
+					this.touchStatus = false
+        }
     }
 }
 </script>
