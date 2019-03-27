@@ -48,19 +48,19 @@ export default {
 					this.touchStatus = true
         },
         handleTouchMove (e) {
-            if (this.touchStatus) {
-							// 节流
-							if (this.timer) {
-								clearTimeout(this.timer)
-							}
-							this.timer = setTimeout(() => {
-								const touchY = e.touches[0].clientY - 79
-								const index = Math.floor((touchY - this.startY) / 20)
-								if (index >= 0 && index < this.letters.length) {
-									Bus.$emit('letterChange', this.letters[index])
-								}
-							}, 16)
+          if (this.touchStatus) {
+            // 节流
+            if (this.timer) {
+              clearTimeout(this.timer)
             }
+            this.timer = setTimeout(() => {
+              const touchY = e.touches[0].clientY - 79
+              const index = Math.floor((touchY - this.startY) / 20)
+              if (index >= 0 && index < this.letters.length) {
+                Bus.$emit('letterChange', this.letters[index])
+              }
+            }, 16)
+          }
         },
         handleTouchEnd () {
 					this.touchStatus = false
