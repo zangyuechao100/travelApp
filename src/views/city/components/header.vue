@@ -9,17 +9,7 @@
 
 <script>
 export default {
-    name: 'Header',
-    components: {
-    },
-    data () {
-        return {
-        }
-    },
-    mounted() {
-    },
-    methods: {
-    }
+    name: 'Header'
 }
 </script>
 
