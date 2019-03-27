@@ -49,8 +49,6 @@ export default {
             this.letter = res
         })
     },
-    methods: {
-    },
     watch: {
         letter (newValue) {
             this.scroll.scrollToElement(this.$refs[newValue][0])
