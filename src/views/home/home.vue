@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Header :city="city"></Header>
+      <Header></Header>
       <HomeSwiper v-if="swiperList.length" :swiperList="swiperList"></HomeSwiper>
       <Icons :iconList="iconList" v-if="iconList.length"></Icons>
       <Recommend :recommendList="recommendList"></Recommend>
@@ -26,7 +26,6 @@ export default {
     },
     data () {
         return {
-            city: '杭州',
             swiperList: [],
             iconList: [],
             recommendList: [],
@@ -39,10 +38,8 @@ export default {
     methods: {
         getHomeInfo () {
             axios.get('/api/index.json').then((res) => {
-                console.log(res.data)
                 res = res.data
                 if (res.ret && res.data) {
-                    this.city = res.data.city
                     this.swiperList = res.data.swiperList
                     this.iconList = res.data.iconList
                     this.recommendList = res.data.recommendList
