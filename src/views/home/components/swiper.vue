@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style scope lang="less">
+<style scoped lang="less">
 .wrapper {
   width: 100%;
   height: 0;
