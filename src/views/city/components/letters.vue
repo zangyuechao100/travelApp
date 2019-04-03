@@ -1,7 +1,7 @@
 <template>
   <div class="letters">
     <li class="items"
-        @touchstart="handleTouchStart"
+        @touchstart.prevent="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
         v-for="(item,key) in cities"
