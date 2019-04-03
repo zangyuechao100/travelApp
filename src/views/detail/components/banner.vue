@@ -5,7 +5,9 @@
         <div class="banner-title">{{sightName}}</div>
         <div class="banner-number"><div class="iconfont banner-icon">&#xe6dd;</div>{{gallaryImgs.length}}</div>
     </div>
-    <CommonGallry @closeGallary="closeGallary" :imgs="gallaryImgs" v-show="showGallary"></CommonGallry>
+    <transition>
+        <CommonGallry @closeGallary="closeGallary" :imgs="gallaryImgs" v-show="showGallary"></CommonGallry>
+    </transition>
   </div>
 </template>
 
@@ -72,5 +74,15 @@ export default {
             }
         }
     }
+}
+
+.v-enter {
+    opacity: 0;
+}
+.v-leave-to {
+    opacity: 0;
+}
+.v-enter-active, .v-leave-active {
+    transition: all 0.3s;
 }
 </style>
