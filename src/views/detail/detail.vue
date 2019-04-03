@@ -1,6 +1,6 @@
 <template>
   <div>
-      <Banner></Banner>
+      <Banner :sightName="sightName" :bannerImg="bannerImg" :gallaryImgs="gallaryImgs"></Banner>
       <DeatilHeader></DeatilHeader>
       <div class="content">
         <DeatilList :list="list"></DeatilList>
@@ -12,6 +12,7 @@
 import Banner from './components/banner.vue'
 import DeatilHeader from './components/header.vue'
 import DeatilList from './components/list.vue'
+import axios from 'axios'
 export default {
     name: 'Detail',
     components: {
@@ -21,27 +22,35 @@ export default {
     },
     data () {
         return {
-            list: [
-                {
-                    title: '成人票',
-                    children: [{
-                        title: '成人三馆联票',
-                        children: [{
-                            title: '成人三馆联票-连锁店'
-                        }]
-                    }]
-                },
-                {
-                    title: '学生票'
-                },
-                {
-                    title: '儿童票'
-                },
-                {
-                    title: '特惠票'
-                }
-            ]
+            list: [],
+            sightName: '',
+            bannerImg: '',
+            gallaryImgs: []
         }
+    },
+    mounted() {
+        this.getDetailInfo()
+    },
+    methods: {
+        getDetailInfo () {
+            axios.get('/api/detail.json', {
+                params: {
+                    id: this.$route.params.id
+                }
+            }).then((res) => {
+                res = res.data
+                if (res.ret && res.data) {
+                    const data = res.data
+                    this.sightName = data.sightName
+                    this.bannerImg = data.bannerImg
+                    this.gallaryImgs = data.gallaryImgs
+                    this.list = data.categoryList
+                }
+            })
+        }
+    },
+    activated() {
+        this.getDetailInfo()   
     }
 }
 </script>

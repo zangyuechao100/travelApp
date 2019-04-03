@@ -1,11 +1,11 @@
 <template>
   <div class="banner">
-    <img class="banner-img" @click="handleBannerClick" src="//img1.qunarzz.com/sight/p0/1903/e0/e0e0c6ca274ad49aa3.img.jpg_600x330_70691c22.jpg">
+    <img class="banner-img" @click="handleBannerClick" :src="bannerImg">
     <div class="banner-info">
-        <div class="banner-title">西溪国家湿地公园·周家村(AAAAA景区)</div>
-        <div class="banner-number"><div class="iconfont banner-icon">&#xe6dd;</div>39</div>
+        <div class="banner-title">{{sightName}}</div>
+        <div class="banner-number"><div class="iconfont banner-icon">&#xe6dd;</div>{{gallaryImgs.length}}</div>
     </div>
-    <CommonGallry @closeGallary="closeGallary" :imgs="imgs" v-show="showGallary"></CommonGallry>
+    <CommonGallry @closeGallary="closeGallary" :imgs="gallaryImgs" v-show="showGallary"></CommonGallry>
   </div>
 </template>
 
@@ -16,13 +16,10 @@ export default {
     components: {
         CommonGallry
     },
+    props: ['sightName', 'bannerImg', 'gallaryImgs'],
     data () {
         return {
-            showGallary: false,
-            imgs: [
-                '//img1.qunarzz.com/sight/p0/1903/e0/e0e0c6ca274ad49aa3.img.jpg_600x330_70691c22.jpg',
-                'http://img1.qunarzz.com/sight/p0/1901/8c/8c1d317bc954ce06a3.water.jpg_r_800x800_ed3006e3.jpg'
-            ]
+            showGallary: false
         }
     },
     methods: {

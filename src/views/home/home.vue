@@ -1,8 +1,8 @@
 <template>
   <div>
       <Header></Header>
-      <HomeSwiper v-if="swiperList.length" :swiperList="swiperList"></HomeSwiper>
-      <Icons :iconList="iconList" v-if="iconList.length"></Icons>
+      <HomeSwiper :swiperList="swiperList"></HomeSwiper>
+      <Icons :iconList="iconList"></Icons>
       <Recommend :recommendList="recommendList"></Recommend>
       <Weekend :weekendList="weekendList"></Weekend>
   </div>
